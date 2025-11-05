@@ -38,6 +38,11 @@ window/handheld/orientation=1
 
 enabled=PackedStringArray("res://addons/godot-vim/plugin.cfg")
 
+[filesystem]
+
+import/blender/enabled.android=true
+import/blender/enabled.web=true
+
 [global_group]
 
 PipeGroup="Group for pipe detection"
@@ -45,6 +50,9 @@ PipeGroup="Group for pipe detection"
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+textures/canvas_textures/default_texture_repeat=1
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_s3tc_bptc=true
 textures/vram_compression/import_etc2_astc=true
+viewport/hdr_2d=true

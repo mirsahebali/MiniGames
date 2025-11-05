@@ -9,7 +9,7 @@ func spawn_game_over() -> void:
 	label.z_index = 15
 	label.text = "Game Over"
 	label.size = Vector2(200, 100)
-	label.position = Vector2(get_window().size.x/4.0,10)
+	label.position = Vector2(get_viewport().size.x/4.0,10)
 	label.visible = true
 	label.add_theme_font_size_override("font_size", 32)
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -21,7 +21,7 @@ func spawn_game_over() -> void:
 	restart_game_button.text = "Restart Game"
 	restart_game_button.visible = true
 	restart_game_button.add_theme_font_size_override("font_size", 16)
-	restart_game_button.position = Vector2(get_window().size.x/4.0, 80)
+	restart_game_button.position = Vector2(get_viewport().size.x/4.0, 80)
 	restart_game_button.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
 	restart_game_button.pressed.connect(_restart_button_pressed)
 	add_sibling(restart_game_button)

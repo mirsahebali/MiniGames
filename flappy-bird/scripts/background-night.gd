@@ -9,7 +9,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	position.x -= delta * 150 
-	var window_width = get_window().size.x
+	var window_width: float = get_viewport_rect().size.x
 	if position.x + window_width <= 0.0:
 		position.x = (window_width * 2) - 18
 

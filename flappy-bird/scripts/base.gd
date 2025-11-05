@@ -10,7 +10,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	position.x -= delta * 70
 
-	var window_width = get_window().size.x
+	var window_width: float = get_viewport().size.x
 	if position.x + window_width <= 0.0:
 		position.x = (window_width * 2) - 18
 	pass

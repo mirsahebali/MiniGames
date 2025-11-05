@@ -26,6 +26,8 @@ scale = Vector2(0.99999994, 0.9999999)
 
 [node name="BgNight" type="Sprite2D" parent="Camera2D"]
 z_index = -5
+texture_filter = 1
+texture_repeat = 2
 scale = Vector2(1.3819445, 1.5625002)
 texture = ExtResource("2_o6xl0")
 region_enabled = true
@@ -89,6 +91,7 @@ region_rect = Rect2(0, 0, 400, 112)
 script = ExtResource("5_choun")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/BaseBody"]
+texture_repeat = 2
 position = Vector2(398.25, 345.75)
 shape = SubResource("RectangleShape2D_efxa6")
 debug_color = Color(0.9504003, 0.21106213, 0.20314124, 0.41960785)
