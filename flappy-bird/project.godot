@@ -1,0 +1,50 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Games20 - Flappy Bird"
+run/main_scene="uid://c4cdsdvq6o0hc"
+config/features=PackedStringArray("4.5", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+ScoreManager="*res://scripts/ScoreManager.gd"
+SettingsManager="*res://scripts/SettingsManager.gd"
+StateManager="*res://scripts/StateManager.gd"
+Utils="*res://scripts/Utils.gd"
+
+[debug]
+
+gdscript/warnings/untyped_declaration=1
+gdscript/warnings/inferred_declaration=1
+
+[display]
+
+window/size/viewport_width=400
+window/size/viewport_height=800
+window/stretch/mode="canvas_items"
+window/handheld/orientation=1
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-vim/plugin.cfg")
+
+[global_group]
+
+PipeGroup="Group for pipe detection"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/vram_compression/import_etc2_astc=true

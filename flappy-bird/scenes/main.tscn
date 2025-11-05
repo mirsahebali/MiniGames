@@ -1,0 +1,126 @@
+[gd_scene load_steps=13 format=3 uid="uid://c4cdsdvq6o0hc"]
+
+[ext_resource type="Script" uid="uid://dggg6peqjl30t" path="res://scripts/main.gd" id="1_tefeu"]
+[ext_resource type="Texture2D" uid="uid://whgwirf0i3s0" path="res://assets/flappy-bird-assets/sprites/background-night.png" id="2_o6xl0"]
+[ext_resource type="Script" uid="uid://dkcpfdh8logxa" path="res://scripts/background-night.gd" id="3_tipki"]
+[ext_resource type="Texture2D" uid="uid://b245hmhgophrq" path="res://assets/flappy-bird-assets/sprites/base.png" id="4_85g3d"]
+[ext_resource type="Script" uid="uid://dxv6o5nvc6wnl" path="res://scripts/base.gd" id="5_choun"]
+[ext_resource type="PackedScene" uid="uid://pdccr2v342sw" path="res://scenes/bird_body.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://bk80q8cjhu1gu" path="res://scenes/obstacle_movement.tscn" id="7_o6xl0"]
+[ext_resource type="Script" uid="uid://crjmac4ryblb2" path="res://scripts/bird_body.gd" id="7_tipki"]
+[ext_resource type="PackedScene" uid="uid://228ovaf47fcn" path="res://scenes/ui.tscn" id="8_choun"]
+[ext_resource type="PackedScene" uid="uid://ctgjmbe5535rt" path="res://scenes/score.tscn" id="9_85g3d"]
+[ext_resource type="PackedScene" uid="uid://carat2225rusx" path="res://scenes/high_score.tscn" id="11_ya4ey"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_efxa6"]
+size = Vector2(1191.5002, 104.50009)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_tefeu")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(200.00002, 400)
+scale = Vector2(0.99999994, 0.9999999)
+
+[node name="BgNight" type="Sprite2D" parent="Camera2D"]
+z_index = -5
+scale = Vector2(1.3819445, 1.5625002)
+texture = ExtResource("2_o6xl0")
+region_enabled = true
+region_rect = Rect2(0, 0, 288, 512)
+script = ExtResource("3_tipki")
+metadata/_edit_lock_ = true
+
+[node name="BgNight2" type="Sprite2D" parent="Camera2D"]
+z_index = -5
+position = Vector2(396.00003, 0)
+scale = Vector2(1.3819445, 1.5625002)
+texture = ExtResource("2_o6xl0")
+region_enabled = true
+region_rect = Rect2(0, 0, 288, 512)
+script = ExtResource("3_tipki")
+metadata/_edit_lock_ = true
+
+[node name="BgNight3" type="Sprite2D" parent="Camera2D"]
+z_index = -5
+position = Vector2(794.00006, 0)
+scale = Vector2(1.3819445, 1.5625002)
+texture = ExtResource("2_o6xl0")
+region_enabled = true
+region_rect = Rect2(0, 0, 288, 512)
+script = ExtResource("3_tipki")
+metadata/_edit_lock_ = true
+
+[node name="BaseBody" type="StaticBody2D" parent="Camera2D"]
+collision_layer = 2
+collision_mask = 2
+metadata/_edit_lock_ = true
+
+[node name="Base2" type="Sprite2D" parent="Camera2D/BaseBody"]
+z_index = 5
+texture_repeat = 2
+position = Vector2(399.00006, 343)
+scale = Vector2(1.0000001, 1.0000001)
+texture = ExtResource("4_85g3d")
+region_enabled = true
+region_rect = Rect2(0, 0, 400, 112)
+script = ExtResource("5_choun")
+
+[node name="Base3" type="Sprite2D" parent="Camera2D/BaseBody"]
+z_index = 5
+texture_repeat = 2
+position = Vector2(798.00006, 343)
+scale = Vector2(1.0000001, 1.0000001)
+texture = ExtResource("4_85g3d")
+region_enabled = true
+region_rect = Rect2(0, 0, 400, 112)
+script = ExtResource("5_choun")
+
+[node name="Base" type="Sprite2D" parent="Camera2D/BaseBody"]
+z_index = 5
+texture_repeat = 2
+position = Vector2(-1.5258789e-05, 343)
+scale = Vector2(1.0000001, 1.0000001)
+texture = ExtResource("4_85g3d")
+region_enabled = true
+region_rect = Rect2(0, 0, 400, 112)
+script = ExtResource("5_choun")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/BaseBody"]
+position = Vector2(398.25, 345.75)
+shape = SubResource("RectangleShape2D_efxa6")
+debug_color = Color(0.9504003, 0.21106213, 0.20314124, 0.41960785)
+
+[node name="BirdBody" parent="Camera2D" instance=ExtResource("6_tefeu")]
+position = Vector2(-112.00004, 16)
+scale = Vector2(1.0000002, 1.0000002)
+script = ExtResource("7_tipki")
+
+[node name="Obstacles" parent="Camera2D" instance=ExtResource("7_o6xl0")]
+position = Vector2(-192.00005, -368.00006)
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="Score" parent="Camera2D" instance=ExtResource("9_85g3d")]
+offset_left = -195.00005
+offset_top = -398.00006
+offset_right = -132.00005
+offset_bottom = -357.00006
+
+[node name="Menu" parent="." instance=ExtResource("8_choun")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 85.999985
+offset_top = 190.99998
+offset_right = 85.999985
+offset_bottom = 190.99998
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="High Score" parent="." instance=ExtResource("11_ya4ey")]
+offset_left = 293.0
+offset_top = 8.0
+offset_right = 394.0
+offset_bottom = 31.0

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bk80q8cjhu1gu"]
+
+[ext_resource type="PackedScene" uid="uid://cj30b0qkvnmb8" path="res://scenes/obstacle_pass.tscn" id="1_6vdl3"]
+[ext_resource type="Script" uid="uid://b06nddk8nqcmk" path="res://scripts/obstacle_movement.gd" id="2_si3te"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Obstacle0" parent="." instance=ExtResource("1_6vdl3")]
+position = Vector2(168, 304)
+script = ExtResource("2_si3te")
+metadata/id = 0
+
+[node name="Obstacle1" parent="." instance=ExtResource("1_6vdl3")]
+position = Vector2(344, 304)
+script = ExtResource("2_si3te")
+metadata/id = 1
+
+[node name="Obstacle2" parent="." instance=ExtResource("1_6vdl3")]
+position = Vector2(520, 304)
+script = ExtResource("2_si3te")
+metadata/id = 2

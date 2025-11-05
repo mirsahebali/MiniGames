@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://cj30b0qkvnmb8"]
+
+[ext_resource type="PackedScene" uid="uid://bl8ckiekabult" path="res://scenes/pipe.tscn" id="1_o8tm3"]
+[ext_resource type="Script" uid="uid://b8jluts3b7eey" path="res://scripts/obstacle_pass.gd" id="2_rfexn"]
+[ext_resource type="Script" uid="uid://belscqmobkd0t" path="res://scripts/pipe.gd" id="2_yowpx"]
+[ext_resource type="AudioStream" uid="uid://crowxwltn70m8" path="res://assets/flappy-bird-assets/audio/hit.ogg" id="4_ino7y"]
+[ext_resource type="AudioStream" uid="uid://bwmicsov7bm3h" path="res://assets/flappy-bird-assets/audio/die.ogg" id="5_kcc8h"]
+[ext_resource type="AudioStream" uid="uid://ox7yfxfb2u0h" path="res://assets/flappy-bird-assets/audio/point.ogg" id="6_t6t1j"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_rfexn"]
+a = Vector2(-2, -632)
+b = Vector2(-2, 632)
+
+[node name="Node2D" type="Node2D"]
+metadata/pipe_sprite_size = 0.0
+
+[node name="PipeBottom" parent="." instance=ExtResource("1_o8tm3")]
+position = Vector2(0, 384)
+script = ExtResource("2_yowpx")
+metadata/is_bottom = true
+
+[node name="PipeTop" parent="." instance=ExtResource("1_o8tm3")]
+position = Vector2(0, -384)
+rotation = 3.1415927
+script = ExtResource("2_yowpx")
+metadata/is_bottom = false
+
+[node name="PassPipe" type="Area2D" parent="."]
+position = Vector2(28, 0)
+script = ExtResource("2_rfexn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PassPipe"]
+shape = SubResource("SegmentShape2D_rfexn")
+debug_color = Color(0.8903753, 0.17399663, 0.4780392, 0.41960785)
+
+[node name="Hit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ino7y")
+
+[node name="Die" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_kcc8h")
+
+[node name="Point" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_t6t1j")
+
+[connection signal="body_entered" from="PipeBottom" to="PipeBottom" method="_on_body_entered"]
+[connection signal="body_entered" from="PipeTop" to="PipeTop" method="_on_body_entered"]
+[connection signal="body_entered" from="PassPipe" to="PassPipe" method="_on_body_entered"]

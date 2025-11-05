@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctgjmbe5535rt"]
+
+[ext_resource type="Script" uid="uid://cbc6moqqoj3m0" path="res://scripts/score_label.gd" id="1_8juob"]
+
+[sub_resource type="Theme" id="Theme_8juob"]
+
+[node name="Score" type="Label"]
+offset_right = 111.0
+offset_bottom = 69.0
+theme = SubResource("Theme_8juob")
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_8juob")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy1b12afkjx28"]
+
+[sub_resource type="Theme" id="Theme_kp246"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_y38sv"]
+
+[node name="Label" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme = SubResource("Theme_kp246")
+text = "GAME OVER
+
+Press R or SPACE to Restart Game"
+label_settings = SubResource("LabelSettings_y38sv")
+horizontal_alignment = 1
+vertical_alignment = 1
