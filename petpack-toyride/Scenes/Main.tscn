@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://cc8lf634ivfrt"]
+
+[ext_resource type="Script" uid="uid://8xeq313ptv8r" path="res://Scripts/Main.gd" id="1_kln2b"]
+[ext_resource type="PackedScene" uid="uid://q4pd5g50ejuc" path="res://Scenes/Player.tscn" id="1_r150o"]
+[ext_resource type="Script" uid="uid://ch32ptdkg13cv" path="res://Scripts/PlayerMovement.gd" id="2_idj7w"]
+[ext_resource type="PackedScene" uid="uid://iqf0f8rqoao8" path="res://Scenes/Enemy.tscn" id="4_rgh2o"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idj7w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_idj7w"]
+size = Vector2(800, 59)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_kln2b")
+
+[node name="Player" parent="." instance=ExtResource("1_r150o")]
+position = Vector2(144, 320)
+script = ExtResource("2_idj7w")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_idj7w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(400, 372.5)
+shape = SubResource("RectangleShape2D_idj7w")
+debug_color = Color(0.4953366, 0.5827934, 0.034858216, 0.41960785)
+
+[node name="Ceiling" type="StaticBody2D" parent="."]
+collision_mask = 3
+physics_material_override = SubResource("PhysicsMaterial_idj7w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ceiling"]
+position = Vector2(400, 0)
+shape = SubResource("RectangleShape2D_idj7w")
+debug_color = Color(0.4953366, 0.5827934, 0.034858216, 0.41960785)
+
+[node name="Enemy" parent="." instance=ExtResource("4_rgh2o")]
+position = Vector2(208, 304)
+collision_layer = 4
+collision_mask = 4

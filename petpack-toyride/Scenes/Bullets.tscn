@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1e1eamlv43cl"]
+
+[ext_resource type="Script" uid="uid://dpsen4n6vag6y" path="res://Scripts/Bullets.gd" id="1_76lte"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3r504"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3r504"]
+radius = 2.0
+height = 16.0
+
+[node name="Bullet" type="RigidBody2D"]
+collision_layer = 2
+collision_mask = 2
+mass = 0.127
+physics_material_override = SubResource("PhysicsMaterial_3r504")
+gravity_scale = 5.186
+linear_velocity = Vector2(100, 0)
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_3r504")
+debug_color = Color(0.97257787, 0, 0.44338188, 0.41960785)
+
+[node name="Detection" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_76lte")
+
+[node name="DetectionSurface" type="CollisionShape2D" parent="Detection"]
+shape = SubResource("CapsuleShape2D_3r504")
+debug_color = Color(0.97257787, 0, 0.44338188, 0.41960785)
+
+[connection signal="body_entered" from="Detection" to="Detection" method="_on_body_entered"]
