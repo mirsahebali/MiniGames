@@ -14,6 +14,7 @@ collision_mask = 2
 mass = 0.127
 physics_material_override = SubResource("PhysicsMaterial_3r504")
 gravity_scale = 5.186
+contact_monitor = true
 linear_velocity = Vector2(100, 0)
 
 [node name="Collision" type="CollisionShape2D" parent="."]

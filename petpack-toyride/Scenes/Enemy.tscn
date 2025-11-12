@@ -1,14 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://iqf0f8rqoao8"]
+[gd_scene load_steps=3 format=3 uid="uid://iqf0f8rqoao8"]
+
+[ext_resource type="Script" uid="uid://po3e4xlb0un6" path="res://Scripts/enemy.gd" id="1_m1htj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7fd37"]
 size = Vector2(20, 38)
 
 [node name="Enemy" type="CharacterBody2D"]
-collision_layer = 5
-collision_mask = 5
+collision_layer = 4
+collision_mask = 4
+input_pickable = true
 motion_mode = 1
 slide_on_ceiling = false
+script = ExtResource("1_m1htj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_7fd37")
-debug_color = Color(0.51726824, 0.650458, 0.7054748, 0.41960785)
+debug_color = Color(0.5176471, 0.6509804, 0.7058824, 0.41960785)
+
+[node name="EnemyArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="DetectShape" type="CollisionShape2D" parent="EnemyArea"]
+shape = SubResource("RectangleShape2D_7fd37")
+debug_color = Color(0.5176471, 0.6509804, 0.7058824, 0.41960785)
+
+[connection signal="body_entered" from="EnemyArea" to="." method="_on_enemy_area_body_entered"]

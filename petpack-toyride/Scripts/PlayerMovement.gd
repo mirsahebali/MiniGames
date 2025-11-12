@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED: float = 300.0
-const JUMP_VELOCITY: float = -400.0
+const JUMP_VELOCITY: float = -300.0
 const BULLET_VELOCITY: float = 50.0
 
 var bullets: Resource = preload("res://Scenes/Bullets.tscn")
