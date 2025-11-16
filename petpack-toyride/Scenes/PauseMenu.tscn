@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://bst1sdgyrani7"]
+
+[ext_resource type="Script" uid="uid://0cigtayjnked" path="res://Scripts/PauseMenu.gd" id="1_lj4oq"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lj4oq")
+
+[node name="BoxContainer" type="BoxContainer" parent="."]
+layout_mode = 0
+offset_left = 336.0
+offset_top = 112.0
+offset_right = 456.0
+offset_bottom = 283.0
+vertical = true
+
+[node name="Resume" type="Button" parent="BoxContainer"]
+layout_mode = 2
+text = "Resume Game"
+
+[node name="Restart" type="Button" parent="BoxContainer"]
+layout_mode = 2
+text = "Restart Game"
+
+[node name="Sound" type="Button" parent="BoxContainer"]
+layout_mode = 2
+text = "Sound: On"
+
+[node name="Credits" type="Button" parent="BoxContainer"]
+layout_mode = 2
+text = "Credits"
+
+[node name="Quit" type="Button" parent="BoxContainer"]
+layout_mode = 2
+text = "Exit Game"
+
+[connection signal="button_down" from="BoxContainer/Resume" to="." method="_on_resume_button_down"]
+[connection signal="button_down" from="BoxContainer/Quit" to="." method="_on_quit_button_down"]

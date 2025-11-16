@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://dre4htmeg4olj"]
+
+[ext_resource type="Script" uid="uid://bcpix6mfxet55" path="res://Scripts/UI.gd" id="1_nxvpl"]
+[ext_resource type="Texture2D" uid="uid://bdfa2dy65tvjk" path="res://Assets/pause.png" id="1_w371h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_w371h"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nxvpl")
+
+[node name="Pause" type="Button" parent="."]
+layout_mode = 0
+offset_left = 776.0
+offset_top = 8.0
+offset_right = 1296.0
+offset_bottom = 528.0
+scale = Vector2(0.03, 0.03)
+icon = ExtResource("1_w371h")
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 69.0
+offset_bottom = 31.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_w371h")
+
+[node name="HighScore" type="Label" parent="."]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 32.0
+offset_right = 109.0
+offset_bottom = 55.0
+text = "High Score: 0"
+label_settings = SubResource("LabelSettings_w371h")
+
+[connection signal="button_down" from="Pause" to="." method="_on_pause_button_down"]

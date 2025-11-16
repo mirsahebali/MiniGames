@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cc8lf634ivfrt"]
+[gd_scene load_steps=7 format=3 uid="uid://cc8lf634ivfrt"]
 
 [ext_resource type="Script" uid="uid://8xeq313ptv8r" path="res://Scripts/Main.gd" id="1_kln2b"]
 [ext_resource type="PackedScene" uid="uid://q4pd5g50ejuc" path="res://Scenes/Player.tscn" id="1_r150o"]
 [ext_resource type="Script" uid="uid://ch32ptdkg13cv" path="res://Scripts/PlayerMovement.gd" id="2_idj7w"]
+[ext_resource type="PackedScene" uid="uid://dre4htmeg4olj" path="res://Scenes/UI.tscn" id="4_rgh2o"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_idj7w"]
 
@@ -33,3 +34,5 @@ physics_material_override = SubResource("PhysicsMaterial_idj7w")
 position = Vector2(400, 0)
 shape = SubResource("RectangleShape2D_idj7w")
 debug_color = Color(0.4953366, 0.5827934, 0.034858216, 0.41960785)
+
+[node name="UI" parent="." instance=ExtResource("4_rgh2o")]

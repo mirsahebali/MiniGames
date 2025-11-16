@@ -6,7 +6,7 @@ var obstacle_scene: PackedScene = preload("res://Scenes/Obstacle.tscn")
 var enemy_scene: PackedScene = preload("res://Scenes/Enemy.tscn")
 
 var enemies: Array[CharacterBody2D] 
-var obstacles: Array[StaticBody2D]
+var obstacles: Array[Area2D]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -63,13 +63,14 @@ func spawn_random_enemy() -> CharacterBody2D:
 	add_child(new_enemy)
 	return new_enemy
 
+var rotation_list = [0, 45, 90, 135]
 
-func spawn_random_obstacle() -> StaticBody2D:
-	var obstacle: StaticBody2D = obstacle_scene.instantiate()
+func spawn_random_obstacle() -> Area2D:
+	var obstacle: Area2D = obstacle_scene.instantiate()
 	obstacle.position.x = get_viewport_rect().size.x + randf_range(10, 1000) 
 	obstacle.position.y = randi_range(32, 344)
 
-	obstacle.rotate(deg_to_rad(randf_range(0, 90)))
+	obstacle.rotate(deg_to_rad(rotation_list.pick_random()))
 
 	add_child(obstacle)
 	return obstacle

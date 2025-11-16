@@ -27,7 +27,6 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		shoot_bullets()
 
-
 	move_and_slide()
 
 func shoot_bullets():
